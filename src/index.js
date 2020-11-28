@@ -25,7 +25,7 @@ const rrfConfig = {
   // attachAuthIsReady: true
 }
 
-console.log(fbConfig)
+// console.log(fbConfig)
 
 firebase.initializeApp(fbConfig)
 firebase.firestore()

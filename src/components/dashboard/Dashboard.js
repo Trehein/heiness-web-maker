@@ -1,20 +1,46 @@
 import React from 'react'
-import { useFirestore } from 'react-redux-firebase'
+import { useSelector } from 'react-redux'
+import { useFirestore, useFirestoreConnect } from 'react-redux-firebase'
+import WebController from '../web/WebController'
+
 
 const Dashboard = () => {
 
     const firestore = useFirestore()
+    useFirestoreConnect(['nodes'])
+    const nodes = useSelector((state) => state.firestore.data.nodes)
 
     function addNode() {
         const newNode = { id: 'Test', done: false }
         return firestore.collection('nodes').add(newNode)
     }
 
-    return (
-        <div>
-            <button onClick={addNode}>New Node</button>
-        </div>
-    )
+    if(!nodes) {        
+        return (
+            <div>
+                ...loading
+            </div>
+        )
+    } else {
+        var arr = [];
+        Object.keys(nodes).forEach((key) => {
+            var newObj = {};
+            newObj = nodes[key];
+            arr.push(newObj);
+        })
+
+        console.log(arr)
+        arr.map((node) => {
+            console.log(node.id)
+        })
+
+        return (
+            <div>
+                <button onClick={addNode}>New Node</button>
+                {/* <WebController nodeData={data} /> */}
+            </div>
+        )
+    }
 }
 
 export default Dashboard
