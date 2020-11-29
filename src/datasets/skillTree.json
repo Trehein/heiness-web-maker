@@ -1,0 +1,164 @@
+{
+    "nodes": [
+        {
+            "id": "Character",
+            "group": "Center",
+            "color": "white",
+            "size": 7,
+            "type": null
+        },
+
+        {
+            "id": "Strength",
+            "group": "str",
+            "color": "red",
+            "size": 3,
+            "type": "Attr"
+        },
+
+        {
+            "id": "Constitution",
+            "group": "const",
+            "color": "yellow",
+            "size": 3,
+            "type": "Attr"
+        },
+
+        {
+            "id": "Agility",
+            "group": "agil",
+            "color": "orange",
+            "size": 3,
+            "type": "Attr"
+        },
+
+        {
+            "id": "Wisdom",
+            "group": "wis",
+            "color": "purple",
+            "size": 3,
+            "type": "Attr"
+        },
+
+        {
+            "id": "Wild (Chi)",
+            "group": "chi",
+            "color": "green",
+            "size": 3,
+            "type": "Attr"
+        },
+        {
+            "id": "Mystic",
+            "group": "chi",
+            "color": "green",
+            "size": 2,
+            "type": "Focus"
+        },
+        {
+            "id": "Survival",
+            "group": "chi",
+            "color": "green",
+            "size": 2,
+            "type": "Focus"
+        },
+        {
+            "id": "Ritual",
+            "group": "chi",
+            "color": "green",
+            "size": 2,
+            "type": "Skill"
+        },
+        {
+            "id": "Hunting",
+            "group": "chi",
+            "color": "green",
+            "size": 2,
+            "type": "Skill"
+        },
+        {
+            "id": "Follow Tracks",
+            "group": "chi",
+            "color": "green",
+            "size": 1,
+            "type": "Action"
+        },
+        {
+            "id": "Identify Tracks",
+            "group": "chi",
+            "color": "green",
+            "size": 1,
+            "type": "Action"
+        },
+
+
+        {
+            "id": "Intelligence",
+            "group": "intel",
+            "color": "blue",
+            "size": 3,
+            "type": "Attr"
+        }    
+        
+
+
+    ],
+    "links": [
+        {
+            "source": "Strength",
+            "target": "Character",
+            "color": "red", 
+            "value": 3
+        },
+        {
+            "source": "Agility",
+            "target": "Character",
+            "color": "orange", 
+            "value": 3
+        },
+        {
+            "source": "Constitution",
+            "target": "Character", 
+            "color": "gold", 
+            "value": 3
+        },
+        {
+            "source": "Wisdom",
+            "target": "Character", 
+            "color": "purple", 
+            "value": 3
+        },
+
+        {
+            "source": "Wild (Chi)",
+            "target": "Character", 
+            "color": "green", 
+            "value": 3
+        },
+        {
+            "source": "Mystic",
+            "target": "Wild (Chi)", 
+            "color": "green", 
+            "value": 3
+        },
+        {
+            "source": "Survival",
+            "target": "Wild (Chi)", 
+            "color": "green", 
+            "value": 3
+        },
+        {
+            "source": "Hunting",
+            "target": "Wild (Chi)", 
+            "color": "green", 
+            "value": 3
+        },
+
+
+        {
+            "source": "Intelligence",
+            "target": "Character", 
+            "color": "blue", 
+            "value": 3
+        }
+    ]
+}

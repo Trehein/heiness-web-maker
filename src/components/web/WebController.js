@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import skillTree from '../../datasets/skillTree.json'
+import { ForceGraph2D } from 'react-force-graph'
 
 const WebController = (props) => {
     const webData = props.data
-    console.log(webData.links)
+    // console.log(webData)
+    const graphData = skillTree
 
     return (
-        <div>
-            <ul>
-                {/* {data.nodes.map((node, index) => 
-                    <li key={index}>{node.id}</li>
-                )} */}
-            </ul>
-        </div>
+        <ForceGraph2D 
+            graphData={graphData}
+            nodeLabel="id"
+            nodeVal={d => d.size}
+            nodeAutoColorBy="group"
+            backgroundColor="black"
+            linkColor="color"
+            linkWidth="value"
+            linkDirectionalParticles={d => d.value}
+            linkDirectionalParticleSpeed={d => d.value * 0.0005}
+        />
     )
 }
 
