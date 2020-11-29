@@ -2,6 +2,7 @@ import React from 'react'
 
 const WebController = (props) => {
     const webData = props.data
+    console.log(webData)
 
     return (
         <div>
