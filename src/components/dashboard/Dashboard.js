@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useFirestore, useFirestoreConnect } from 'react-redux-firebase'
 import WebController from '../web/WebController'
 import CreateNodeForm from './CreateNodeForm'
+import CreateLinkForm from './CreateLinkForm'
 
 const Dashboard = () => {
     const [createNode, setCreateNode] = useState({
@@ -13,6 +14,11 @@ const Dashboard = () => {
         type: ''
     });
 
+    const [createLink, setCreateLink] = useState({
+        target: '',
+        source: ''
+    })
+
     function handleChange(e) {
         setCreateNode({
             ...createNode,
@@ -20,9 +26,21 @@ const Dashboard = () => {
         })
     }
 
+    function handleLinkChange(e) {
+        setCreateLink({
+            ...createLink,
+            [e.target.id]: e.target.value
+        })
+    }
+
     function handleNodeSubmit(e) {
         e.preventDefault();
         addNode(createNode)
+    }
+
+    function handleLinkSubmit(e) {
+        e.preventDefault();
+        addLink(createLink)
     }
 
     const firestore = useFirestore()
@@ -46,12 +64,14 @@ const Dashboard = () => {
         return (
             <div>
                 <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
+                <CreateLinkForm handleLinkSubmit={handleLinkSubmit} handleChange={handleLinkChange} />
             </div>
         )
     } else if(!links) {
         return (
             <div>
                 <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
+                <CreateLinkForm handleLinkSubmit={handleLinkSubmit} handleChange={handleLinkChange} />
             </div>
         )
 
@@ -83,6 +103,7 @@ const Dashboard = () => {
         return (
             <div>
                 <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
+                <CreateLinkForm handleLinkSubmit={handleLinkSubmit} handleChange={handleLinkChange} />
                 <WebController data={data} />
             </div>
         )
