@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore' // <- needed if using firestore
-import { createStore, combineReducers, compose } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import {
   ReactReduxFirebaseProvider,
   firebaseReducer

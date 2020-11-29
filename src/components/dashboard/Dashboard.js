@@ -22,22 +22,22 @@ const Dashboard = () => {
             </div>
         )
     } else {
-        var arr = [];
+        var nodeArray = [];
         Object.keys(nodes).forEach((key) => {
             var newObj = {};
             newObj = nodes[key];
-            arr.push(newObj);
+            nodeArray.push(newObj);
         })
 
-        console.log(arr)
-        arr.map((node) => {
-            console.log(node.id)
-        })
+        // console.log(arr)
+        // arr.map((node) => {
+        //     console.log(node.id)
+        // })
 
         return (
             <div>
                 <button onClick={addNode}>New Node</button>
-                {/* <WebController nodeData={data} /> */}
+                <WebController nodeData={nodeArray} />
             </div>
         )
     }
