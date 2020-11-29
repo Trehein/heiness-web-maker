@@ -1,18 +1,14 @@
 import React from 'react'
 
-const WebController = (nodeData) => {
-    let nodes = nodeData.nodeData
-    console.log(nodes)
-    // nodes.map((node) => {
-    //     console.log(node)
-    // })
+const WebController = (props) => {
+    const webData = props.data
 
     return (
         <div>
             <ul>
-                {nodes.map((node, index) => 
+                {/* {data.nodes.map((node, index) => 
                     <li key={index}>{node.id}</li>
-                )}
+                )} */}
             </ul>
         </div>
     )
