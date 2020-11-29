@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useFirestore, useFirestoreConnect } from 'react-redux-firebase'
 import WebController from '../web/WebController'
+import CreateNodeForm from './CreateNodeForm'
 
 const Dashboard = () => {
     const [createNode, setCreateNode] = useState({
@@ -44,64 +45,13 @@ const Dashboard = () => {
     if(!nodes) {        
         return (
             <div>
-                <form onSubmit={handleNodeSubmit} >
-                    <h5>Create Node</h5>
-                    <div>
-                        <label htmlFor="Name">Name: </label>
-                        <input type="id" id="id" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Group">Group: </label>
-                        <input type="group" id="group" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Color">Color: </label>
-                        <input type="color" id="color" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Size">Size: </label>
-                        <input type="size" id="size" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Type">Type: </label>
-                        <input type="type" id="type" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <button>Create Node</button>
-                    </div>
-                </form>
+                <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
             </div>
         )
     } else if(!links) {
         return (
             <div>
-                <button onClick={addLink}>New Link</button>
-                <form onSubmit={handleNodeSubmit} >
-                    <h5>Create Node</h5>
-                    <div>
-                        <label htmlFor="Name">Name: </label>
-                        <input type="id" id="id" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Group">Group: </label>
-                        <input type="group" id="group" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Color">Color: </label>
-                        <input type="color" id="color" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Size">Size: </label>
-                        <input type="size" id="size" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Type">Type: </label>
-                        <input type="type" id="type" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <button>Create Node</button>
-                    </div>
-                </form>
+                <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
             </div>
         )
 
@@ -132,34 +82,7 @@ const Dashboard = () => {
 
         return (
             <div>
-                <button onClick={addNode}>New Node</button>
-                <button onClick={addLink}>New Link</button>
-                <form onSubmit={handleNodeSubmit} >
-                    <h5>Create Node</h5>
-                    <div>
-                        <label htmlFor="Name">Name: </label>
-                        <input type="id" id="id" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Group">Group: </label>
-                        <input type="group" id="group" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Color">Color: </label>
-                        <input type="color" id="color" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Size">Size: </label>
-                        <input type="size" id="size" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="Type">Type: </label>
-                        <input type="type" id="type" onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <button>Create Node</button>
-                    </div>
-                </form>
+                <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
                 <WebController data={data} />
             </div>
         )

@@ -2,7 +2,7 @@ import React from 'react'
 
 const WebController = (props) => {
     const webData = props.data
-    console.log(webData)
+    console.log(webData.nodes[0].size)
 
     return (
         <div>
