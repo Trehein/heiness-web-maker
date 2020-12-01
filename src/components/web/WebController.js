@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import skillTree from '../../datasets/skillTree.json'
-import { ForceGraph2D } from 'react-force-graph'
+import React from 'react'
 import DynamicSkillWeb from './DynamicSkillWeb'
 
 const WebController = (props) => {
-    // const webData = props.data
-    // console.log(webData)
-    const graphData = skillTree
-    // var webData = JSON.parse(JSON.stringify(props.data))
-    const webData = props.data
-    // console.log(graphData)
-    // console.log(webData)
+    var webData = JSON.parse(JSON.stringify(props.data))
 
     return (
         <DynamicSkillWeb graphData={webData} />
