@@ -1,28 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useFirestoreConnect } from 'react-redux-firebase'
-import DynamicSkillWeb from './DynamicSkillWeb'
-// import DynWebTest from './DynWebTest'
+import { ForceGraph2D } from 'react-force-graph'
 
-const WebController = () => {
+const DynWebTest = () => {
     useFirestoreConnect(['nodes'])
     useFirestoreConnect(['links'])
     const nodes = useSelector((state) => state.firestore.data.nodes)
     const links = useSelector((state) => state.firestore.data.links)
 
-    if(!nodes) {
-        return (
-            <div>
-                Create a Node
-            </div>
-        )
-    } else if(!links) {
-        return (
-            <div>
-                Create a link
-            </div>
-        )
-    } else {
+    const [data, setData] = useState({ nodes: [], links: [] })
+
+    useEffect(() => {
         var nodeArray = [];
         Object.keys(nodes).forEach((key) => {
             var newObj = {};
@@ -40,16 +29,19 @@ const WebController = () => {
             var data = {};
             data.nodes = nodeArray;
             data.links = linkArray;
-            return data
+            return JSON.parse(JSON.stringify(data))
         }
 
-        const data = dataPack();
-        const webData = JSON.parse(JSON.stringify(data))
+        const data = dataPack()
+        setData(data)
+    }, [nodes, links])
 
-        return (
-            <DynamicSkillWeb graphData={webData} />
-        )
-    }
+    return (
+        <ForceGraph2D 
+            graphData={data}
+            nodeAutoColorBy="group"
+        />
+    )
 }
 
-export default WebController
+export default DynWebTest
