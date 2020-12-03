@@ -7,6 +7,8 @@ const DynamicSkillWeb = (props) => {
         <ForceGraph2D 
             graphData={props.graphData}
             nodeAutoColorBy="group"
+            height = {props.height}
+            width = {props.width}
         />
     )
 }

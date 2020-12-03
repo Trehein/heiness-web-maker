@@ -4,7 +4,8 @@ import { useFirestoreConnect } from 'react-redux-firebase'
 import DynamicSkillWeb from './DynamicSkillWeb'
 // import DynWebTest from './DynWebTest'
 
-const WebController = () => {
+const WebController = (props) => {
+
     useFirestoreConnect(['nodes'])
     useFirestoreConnect(['links'])
     const nodes = useSelector((state) => state.firestore.data.nodes)
@@ -47,7 +48,7 @@ const WebController = () => {
         const webData = JSON.parse(JSON.stringify(data))
 
         return (
-            <DynamicSkillWeb graphData={webData} />
+            <DynamicSkillWeb graphData={webData} height={props.height} width={props.width} />
         )
     }
 }

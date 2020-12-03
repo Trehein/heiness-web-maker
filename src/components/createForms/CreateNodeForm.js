@@ -7,15 +7,15 @@ const CreateNodeForm = (props) => {
             <h5>Create Node</h5>
             <div>
                 <label htmlFor="Name">Name: </label>
-                <input type="id" id="id" onChange={props.handleChange}/>
+                <input type="text" id="id" onChange={props.handleChange}/>
             </div>
             <div>
                 <label htmlFor="Group">Group: </label>
-                <input type="group" id="group" onChange={props.handleChange}/>
+                <input type="text" id="group" onChange={props.handleChange}/>
             </div>
             <div>
                 <label htmlFor="Color">Color: </label>
-                <input type="color" id="color" onChange={props.handleChange}/>
+                <input type="text" id="color" onChange={props.handleChange}/>
             </div>
             <div>
                 <label htmlFor="Size">Size: </label>
@@ -23,7 +23,7 @@ const CreateNodeForm = (props) => {
             </div>
             <div>
                 <label htmlFor="Type">Type: </label>
-                <input type="type" id="type" onChange={props.handleChange}/>
+                <input type="text" id="type" onChange={props.handleChange}/>
             </div>
             <div>
                 <button>Create Node</button>
