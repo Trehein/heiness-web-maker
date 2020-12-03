@@ -30,6 +30,7 @@ const FormController = () => {
             ...createLink,
             [e.target.id]: e.target.value
         })
+        console.log(createLink)
     }
 
     function handleNodeSubmit(e) {
@@ -38,6 +39,7 @@ const FormController = () => {
     }
 
     function handleLinkSubmit(e) {
+        console.log(createLink)
         e.preventDefault();
         addLink(createLink)
     }
@@ -50,14 +52,14 @@ const FormController = () => {
     }
 
     function addLink() {
-        const newLink = { target: 'Target', source: 'Source' }
+        const newLink = createLink
         return firestore.collection('links').add(newLink)
     }
 
     return (
         <div>
             <CreateNodeForm handleNodeSubmit={handleNodeSubmit} handleChange={handleChange} />
-            <CreateLinkForm handleLinkSubmit={handleLinkSubmit} handleChange={handleLinkChange} />
+            <CreateLinkForm handleLinkSubmit={handleLinkSubmit} handleLinkChange={handleLinkChange} />
         </div>
     )
 }
